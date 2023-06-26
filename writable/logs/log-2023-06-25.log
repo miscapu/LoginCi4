@@ -1,0 +1,19 @@
+CRITICAL - 2023-06-25 23:20:29 --> Call to undefined function set_value()
+in APPPATH/Views/Pages/Login.php on line 23.
+ 1 SYSTEMPATH/View/View.php(213): include()
+ 2 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 APPPATH/Controllers/UserController.php(17): CodeIgniter\View\View->render('Pages/Login')
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\UserController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-06-25 23:51:32 --> Too few arguments to function CodeIgniter\View\View::section(), 0 passed in /Applications/MAMP/htdocs/Projetos/Codeigniter/Sistemas/Login/app/Views/Pages/Register.php on line 48 and exactly 1 expected
+in SYSTEMPATH/View/View.php on line 375.
+ 1 APPPATH/Views/Pages/Register.php(48): CodeIgniter\View\View->section()
+ 2 SYSTEMPATH/View/View.php(213): include('/Applications/MAMP/htdocs/Projetos/Codeigniter/Sistemas/Login/app/Views/Pages/Register.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 APPPATH/Controllers/UserController.php(32): CodeIgniter\View\View->render('Pages/Register')
+ 5 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\UserController->registerUser()
+ 6 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
