@@ -36,3 +36,12 @@ $this->section( 'content' );
 $this->endSection();
 
 
+$this->section( 'scripts' );
+?>
+
+    <script src="<?= base_url( 'assets/js/bootstrap.bundle.js' )?>"></script>
+
+<?php
+$this->endSection();
+
+
