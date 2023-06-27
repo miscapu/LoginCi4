@@ -15,6 +15,10 @@ $this->section( 'content' );
 
     <h1 class="modal-title my-lg-5 text-center"><?= isset( $title ) ? esc( $title ) : ""; ?></h1>
 
+
+    <?= session()->get( 'success' ) ? "<div class='alert alert-warning'>".session()->get( 'success' )."</div>" : ""; ?>
+
+
     <!--- Form HTML -->
 
     <form method="post">
