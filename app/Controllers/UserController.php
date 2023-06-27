@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\User;
 
 class UserController extends BaseController
 {
@@ -64,7 +65,18 @@ class UserController extends BaseController
             if ( ! $this->validate( $rules, $messages ) ){
                 $data[ 'validation' ]   =   $this->validator;
             }else{
-                echo "OK";
+                $userModel  =   new User();
+
+                $newData    =   [
+                    'name'      =>  $this->request->getVar( 'nameFrm' ),
+                    'email'     =>  $this->request->getVar( 'emailFrm' ),
+                    'password'  =>  $this->request->getVar( 'pwdFrm' ),
+                ];
+
+                $userModel->save( $newData );
+                $session    =   session();
+                $session->setFlashdata( 'success', 'Successfull Registration' );
+                return redirect()->to( '/' );
             }
 
         }

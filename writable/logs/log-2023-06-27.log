@@ -1,0 +1,13 @@
+CRITICAL - 2023-06-27 13:29:38 --> Allowed fields must be specified for model: "App\Models\User"
+in SYSTEMPATH/BaseModel.php on line 1242.
+ 1 SYSTEMPATH/BaseModel.php(1242): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\User')
+ 2 SYSTEMPATH/BaseModel.php(757): CodeIgniter\BaseModel->doProtectFields([...])
+ 3 SYSTEMPATH/Model.php(730): CodeIgniter\BaseModel->insert([...], false)
+ 4 SYSTEMPATH/BaseModel.php(692): CodeIgniter\Model->insert([...], false)
+ 5 APPPATH/Controllers/UserController.php(76): CodeIgniter\BaseModel->save([...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\UserController->registerUser()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-06-27 13:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-06-27 13:30:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
