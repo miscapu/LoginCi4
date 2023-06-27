@@ -32,9 +32,36 @@ class UserController extends BaseController
                 'nameFrm'       =>  'required|min_length[3]|max_length[120]',
                 'emailFrm'      =>  'required|min_length[10]|max_length[255]|valid_email|is_unique[users.email]',
                 'pwdFrm'        =>  'required|min_length[3]|max_length[100]',
-                'cfPwdFrm'      =>  'required|matches[pwdFrm]'
+                'cfPwdFrm'      =>  'matches[pwdFrm]'
             ];
-            if ( ! $this->validate( $rules ) ){
+
+            $messages   =   [
+                'nameFrm'       =>  [
+                    'required'      =>  'The name is required!',
+                    'min_length'    =>  'The name must have 3 characters min',
+                    'max_length'    =>  'The name must have 120 max'
+                ],
+
+                'emailFrm'       =>  [
+                    'required'      =>  'The email is required!',
+                    'min_length'    =>  'The email must have 10 characters min',
+                    'max_length'    =>  'The email must have 255 max',
+                    'valid_email'   =>  'The email must be correct!',
+                    'is_unique'     =>  'The email exist already',
+                ],
+
+                'pwdFrm'       =>  [
+                    'required'      =>  'The password is required!',
+                    'min_length'    =>  'The password must have 3 characters min',
+                    'max_length'    =>  'The password must have 100 max',
+                ],
+
+                'cfPwdFrm'       =>  [
+                    'matches'       =>  'The password must be equal to password',
+                ]
+            ];
+
+            if ( ! $this->validate( $rules, $messages ) ){
                 $data[ 'validation' ]   =   $this->validator;
             }else{
                 echo "OK";
