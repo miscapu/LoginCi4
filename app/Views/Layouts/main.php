@@ -25,7 +25,7 @@
                     <a class="nav-link active" aria-current="page" href="<?= site_url( '/' );?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= site_url( 'register' );?>">Register</a>
+                    <?= session()->get( 'isLoggedIn' ) ? '' : '<a class="nav-link" href="'.site_url( 'register' ).'">Register</a>';?>
                 </li>
 <!--                <li class="nav-item dropdown">-->
 <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -46,7 +46,7 @@
 <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
 <!--                <button class="btn btn-outline-success" type="submit">Search</button>-->
 <!--            </form>-->
-            <a class="nav-link" href="#">logout</a>
+            <?= session()->get( 'isLoggedIn' ) ? '<a class="nav-link" href="'.site_url( 'logout' ).'">logout</a>' : "";?>
 
         </div>
     </div>

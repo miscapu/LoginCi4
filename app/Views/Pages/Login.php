@@ -11,6 +11,12 @@ $this->endSection();
 
 
 $this->section( 'content' );
+
+use \Config\Services;
+
+
+    $validation =   Services::validation();
+
 ?>
 
     <h1 class="modal-title my-lg-5 text-center"><?= isset( $title ) ? esc( $title ) : ""; ?></h1>
@@ -25,10 +31,12 @@ $this->section( 'content' );
         <div class="mb-3">
             <label for="emailFrm" class="form-label">Email address</label>
             <input type="email" name="emailFrm" class="form-control" id="emailFrm" value="<?= set_value( 'emailFrm' )?>">
+            <?= ( $validation->hasError( 'emailFrm' ) ) ? '<div class="alert alert-danger">'.$validation->getError( 'emailFrm' ).'</div>' : '';  ?>
         </div>
         <div class="mb-3">
             <label for="pwdFrm" class="form-label">Password</label>
             <input type="password" name="pwdFrm" class="form-control" id="pwdFrm">
+            <?= ( $validation->hasError( 'pwdFrm' ) ) ? '<div class="alert alert-danger">'.$validation->getError( 'pwdFrm' ).'</div>' : '';  ?>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

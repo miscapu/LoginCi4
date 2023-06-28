@@ -145,5 +145,11 @@ class UserController extends BaseController
         return $renderT->setData( $data )->render( 'Pages/Dashboard' );
     }
 
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to( '/' );
+    }
+
 
 }
