@@ -15,17 +15,37 @@
 <!-- NavBar Start -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="<?= site_url( '/' ); ?>">MiSCapu</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= site_url( '/' );?>">Home</a>
+                    <?php
+                        if ( esc( $title ) == 'Login' && ! session()->get( 'isLoggedIn' ) ){
+                            echo "<a class='nav-link active' href='".site_url( '/' )."'>Home</a>";
+                        }else{
+                            if ( session()->get( 'isLoggedIn' ) ){
+                                echo "<a class='nav-link active' href='".site_url( '/' )."'>Home</a>";
+                            }else{
+                                echo "<a class='nav-link' href='".site_url( '/' )."'>Home</a>";
+                            }
+                        }
+                    ?>
                 </li>
                 <li class="nav-item">
-                    <?= session()->get( 'isLoggedIn' ) ? '' : '<a class="nav-link" href="'.site_url( 'register' ).'">Register</a>';?>
+                    <?php
+                        if ( esc( $title ) !== 'Register User' && ! session()->get( 'isLoggedIn' )   ){
+                            echo "<a class='nav-link' href='".site_url( 'register' )."'>Register</a>";
+                        }else{
+                            if ( esc( $title ) === 'Register User' ){
+                                echo "<a class='nav-link active' href='".site_url( 'register' )."'>Register</a>";
+                            }else{
+                                echo "";
+                            }
+                        }
+                    ?>
                 </li>
 <!--                <li class="nav-item dropdown">-->
 <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
